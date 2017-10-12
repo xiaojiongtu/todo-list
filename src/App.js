@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import 'normalize.css'
 import './reset.css'
 import './App.css';
@@ -18,7 +17,7 @@ class App extends Component {
        ]
       };
     }
-  render() {
+    render() {
 
       let todos=this.state.todoList.map((item,index)=>{
           return(
@@ -31,7 +30,7 @@ class App extends Component {
       <div className="App">
           <h1>我的代办</h1>
           <div className="inputWrapper">
-              <TodoInput content={this.state.newTodo} />
+              <TodoInput content={this.state.newTodo} onSubmit={this.addTodo} />
           </div>
           <ol>
               {todos}
@@ -39,6 +38,9 @@ class App extends Component {
       </div>
     );
   }
+    addTodo(){
+        console.log("我得添加一个todo了")
+    }
 }
 
 export default App;
