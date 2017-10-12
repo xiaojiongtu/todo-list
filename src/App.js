@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
+import 'normalize.css'
+import './reset.css'
 import './App.css';
 import TodoInput from './TodoInput'
 import TodoItem from  './TodoItem'
@@ -9,12 +11,11 @@ class App extends Component {
       super(props);
       // 初始状态
       this.state = {
-        newTodo:"test",
+        newTodo:"",
         todoList:[
             {id:1,title:"第一个待办"},
-            {id:2,title:"第二个待办"},
+            {id:2,title:"第二个待办"}
        ]
-
       };
     }
   render() {
