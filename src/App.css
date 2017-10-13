@@ -18,3 +18,9 @@
   height: 40px;
   line-height: 40px;
 }
+.App >.todolist>li:nth-child(odd){
+   background:#eee ;
+}
+.App >.todolist>li:nth-child(even){
+  background:transparent ;
+}
