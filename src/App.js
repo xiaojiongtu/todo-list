@@ -4,6 +4,7 @@ import './reset.css'
 import './App.css';
 import TodoInput from './TodoInput'
 import TodoItem from  './TodoItem'
+import * as localStore from './localStore'
 class App extends Component {
      // 构造
     constructor(props) {
@@ -11,10 +12,7 @@ class App extends Component {
       // 初始状态
       this.state = {
         newTodo:"",
-        todoList:[
-            //{id:1,title:"第一个待办"},
-            //{id:2,title:"第二个待办"}
-       ]
+        todoList:localStore.load('todolist')||[]
       };
     }
     render() {
@@ -44,12 +42,14 @@ class App extends Component {
     toggle(e,todo){
         todo.status=todo.status==='completed' ? '':'completed'
         this.setState(this.state)
+        localStore.save('todolist',this.state.todoList)
     }
     changeTitle(event){
         this.setState({
             newTodo:event.target.value,
             todoList:this.state.todoList
         })
+        localStore.save('todolist',this.state.todoList)
     }
     addTodo(event){
         this.state.todoList.push({
@@ -62,10 +62,12 @@ class App extends Component {
             newTodo:"",
             todoList:this.state.todoList
         })
+        localStore.save('todolist',this.state.todoList)
     }
     delete(event,todo){
         todo.deleted=true
         this.setState(this.state)
+        localStore.save('todolist',this.state.todoList)
     }
 }
 
