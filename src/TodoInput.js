@@ -6,7 +6,7 @@ import './TodoInput.css'
 
 export default class TodoInput extends Component{
     render(){
-        return <input type="text" className="TodoInput" value ={this.props.content}
+        return <input type="text" className="TodoInput" placeholder="输入待办" value ={this.props.content}
                       onChange={this.changeTitle.bind(this)}
                       onKeyPress={this.onSubmit.bind(this)}/>
     }
